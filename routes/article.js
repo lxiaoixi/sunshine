@@ -252,9 +252,74 @@ router.get('/crime_details1', function(req, res, next) {
         .findOne({ _id: _id })
         .populate('articleType procuratorate')
         .exec(function(err, Article) {
-            res.render('news_details1', { title: '预防教育', Article: Article });
+            res.render('crime_details1', { title: '预防教育', Article: Article });
         })
 })
 
+router.get('/crime_details2', function(req, res, next) {
+    var _id = req.query._id;
+    Article
+        .findOne({ _id: _id })
+        .populate('articleType procuratorate')
+        .exec(function(err, Article) {
+            res.render('crime_details1', { title: '预防教育', Article: Article });
+        })
+})
 
+router.get('/crime_details3', function(req, res, next) {
+    var _id = req.query._id;
+    Article
+        .findOne({ _id: _id })
+        .populate('articleType procuratorate')
+        .exec(function(err, Article) {
+            res.render('crime_details1', { title: '预防教育', Article: Article });
+        })
+})
+
+router.get('/crime_details4', function(req, res, next) {
+    var _id = req.query._id;
+    Article
+        .findOne({ _id: _id })
+        .populate('articleType procuratorate')
+        .exec(function(err, Article) {
+            res.render('crime_details1', { title: '预防教育', Article: Article });
+        })
+})
+
+//一级菜单'网格监督'
+
+router.get('/patrolAttorney', function(req, res, next) {
+    Article
+        .find({})
+        .populate('articleType procuratorate')
+        .exec(function(err, articles) {
+            var Articles = [];
+            for (var i = 0; i < articles.length; i++) {
+                if (articles[i].articleType.typeName == '巡检概况') {
+                    Articles.push(articles[i]);
+                }
+            }
+            res.render('patrolAttorney', { title: '巡检概况', Articles: Articles });
+        })
+});
+
+//一级菜单'线索受理'
+
+router.get('/report', function(req, res, next) {
+    res.render('report', { title: '线索受理' });
+})
+
+
+// 一级菜单 "检察联络员",
+router.get('/attorneyLiaison', function(req, res, next) {
+    res.render('attorneyLiaison', { title: '检察联络员' });
+});
+// 二级菜单 "检察联络员"-职责
+router.get('/attorneyDetails', function(req, res, next) {
+    res.render('attorneyDetails', { title: '检察联络员职责' });
+});
+// 二级菜单 "检察联络员"-联系人
+router.get('/attorneyAddress', function(req, res, next) {
+    res.render('attorneyAddress', { title: '检察联络员' });
+});
 module.exports = router;
