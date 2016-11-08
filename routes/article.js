@@ -316,10 +316,27 @@ router.get('/attorneyLiaison', function(req, res, next) {
 });
 // 二级菜单 "检察联络员"-职责
 router.get('/attorneyDetails', function(req, res, next) {
-    res.render('attorneyDetails', { title: '检察联络员职责' });
+    Article
+        .find({})
+        .populate('articleType')
+        .exec(function(err, articles) {
+            var Articles = [];
+            for (var i = 0; i < articles.length; i++) {
+                if (articles[i].articleType.typeName == '联络员职责') {
+                    Articles.push(articles[i]);
+                }
+            }
+            res.render('attorneyDetails', { title: '检察联络员职责', Articles: Articles });
+        })
+
 });
 // 二级菜单 "检察联络员"-联系人
 router.get('/attorneyAddress', function(req, res, next) {
-    res.render('attorneyAddress', { title: '检察联络员' });
+    res.render('attorneyAddress', { title: '检察联络员一览表' });
+});
+
+// 一级菜单检察地图
+router.get('/maps', function(req, res, next) {
+    res.render('maps', { title: '检察地图' });
 });
 module.exports = router;
