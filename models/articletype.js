@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 var ArticleType = new Schema({
     typeName: String,
+
     description: String,
     isExpired: Boolean
 });

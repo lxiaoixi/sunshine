@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+
+<head>
+    <%- include('admin/portal/head'); %>
+    <script src="/javascripts/echarts.min.js"></script>
+</head>
+
+<body data-type="generalComponents">
+     <%- include('admin/portal/header') %>
+
+    <div class="tpl-page-container tpl-page-header-fixed">
+
+         <%- include('admin/portal/sidernav') %>
+        <div class="tpl-content-wrapper">
+            <div class="tpl-content-page-title">
+               检察快讯
+            </div>
+            <ol class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">Amaze UI CSS</a></li>
+                <li class="am-active">检察快讯</li>
+            </ol>
+            <div class="tpl-portlet-components">
+                <div class="portlet-title">
+                    <div class="caption font-green bold">
+                        <span class="am-icon-code"></span> 检察快讯
+                    </div>
+
+                </div>
+                <div class="tpl-block">
+                  
+                    <div class="am-g">
+                        <div class="am-u-sm-12">
+                         <img src="/images/2.jpg" class="am-img-responsive" alt="" style="margin-bottom:5px;width:100%;height:300px;"/>
+                        <br>
+                            <ul>
+                                <%for(var i=0;i<Articles.length;i++){ %>
+                               <li><a href="/article/news_details<%=i+1%>?_id=<%=Articles[i]._id%>">
+                                   
+                                    <div class="am-text-default">
+                                        <h4 class="weui_media_title" style="margin:0"><%=Articles[i].title%></h4>
+                                        <p class="weui_media_desc" style="margin:0"><small>该预防职务犯罪工作体系坚持“标本兼治、综合治理、惩防并举、注重预防”的工作方针，紧紧围绕市委工作大局，重点对政府集中采购、财政投资管理领域、财政资金拨付中的滥用职权等行为进行预防和监督。</small></p>
+                                    </div>
+                                </a></li><br>
+                                <%}%>
+                            </ul>
+                                   
+                        </div>
+
+                    </div>
+                </div>
+                <div class="tpl-alert"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+      <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/amazeui.min.js"></script>
+    <script src="/javascripts/iscroll.js"></script>
+    <script src="/javascripts/app.js"></script>
+</body>
+
+</html>

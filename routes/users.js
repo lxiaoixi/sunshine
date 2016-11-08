@@ -12,6 +12,7 @@ router.get('/register', function(req, res, next) {
 });
 
 router.post('/register', function(req, res, next) {
+    //Convenience method to register a new user instance with a given password. Checks if username is unique
     Account.register(new Account({ username: req.body.username }), req.body.password, function(err, account) {
         if (err) {
             return res.render('register', { title: 'demo', account: account });
@@ -20,6 +21,7 @@ router.post('/register', function(req, res, next) {
         passport.authenticate('local')(req, res, function() {
             res.redirect('/');
         });
+
     });
 });
 

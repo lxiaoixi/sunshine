@@ -34,4 +34,9 @@ router.post('/procuratorate', function(req, res, next) {
         res.redirect('/procuratorate')
     })
 })
+
+router.get('/list', function(req, res, next) {
+
+    res.render('edit', { title: '文章列表' });
+})
 module.exports = router;

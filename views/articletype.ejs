@@ -1,13 +1,80 @@
 <!doctype html>
 <html>
-    <head>
-        <title>文章类型</title>
-    </head>
-    <body>
-        <form action="/article/type" method="post">
-            文章类型：<input type="text" name="articletype"><br><br>
-            类型描述:<textarea name="description"></textarea><br><br>
-            <input type="submit" value="提交">
-        </form>
-    </body>
+
+<head>
+   <%- include('admin/portal/head'); %>
+   <script src="/javascripts/echarts.min.js"></script>
+</head>
+
+<body data-type="generalComponents">
+      <%- include('admin/portal/header') %>
+
+    <div class="tpl-page-container tpl-page-header-fixed">
+         <%- include('admin/portal/sidernav') %>
+
+        <div class="tpl-content-wrapper">
+            <div class="tpl-content-page-title">
+               文章类型
+            </div>
+            <ol class="am-breadcrumb">
+                <li><a href="#" class="am-icon-home">首页</a></li>
+                <li><a href="#">文章类型</a></li>
+                <li class="am-active">文章类型发表</li>
+            </ol>
+            <div class="tpl-portlet-components">
+                <div class="portlet-title">
+                    <div class="caption font-green bold">
+                        <span class="am-icon-code"></span> 文章类型
+                    </div>
+                   
+
+
+                </div>
+
+                <div class="tpl-block">
+
+                    <div class="am-g">
+                        <div class="tpl-form-body tpl-form-line">
+                            <form class="am-form tpl-form-line-form" action="/article/type" method="post">
+                                <div class="am-form-group">
+                                    <label for="title" class="am-u-sm-3 am-form-label">文章类型 <span class="tpl-form-line-small-title">Title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="tltle" name="articletype" placeholder="请输入文章类型">
+                                        
+                                    </div>
+                                </div>
+
+                                 
+
+                    
+                                <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">文章类型描述</label>
+                                    <div class="am-u-sm-9">
+                                        <textarea class="" rows="10" id="user-intro" name="content" placeholder="请输入文章类型的具体描述"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+  <script src="/javascripts/jquery.min.js"></script>
+    <script src="/javascripts/amazeui.min.js"></script>
+    <script src="/javascripts/iscroll.js"></script>
+    <script src="/javascripts/app.js"></script>
+</body>
+
 </html>

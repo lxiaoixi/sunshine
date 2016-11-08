@@ -20,8 +20,8 @@ var article = require('./routes/article');
 
 var expiryDate = new Date(Date.now() + 60 * 60 * 1000); // 1 hour
 // setup route middlewares 
-var csrfProtection = csurf({ cookie: true });
-var parseForm = bodyParser.urlencoded({ extended: false });
+var csrfProtection = csurf({ cookie: true }); //确定账号是否要保存在cookie和session中
+
 
 var app = express();
 
@@ -44,10 +44,10 @@ app.use(session({
     name: 'sunshine',
     keys: ['apsdkncuaewp9hvp9q23jb', 'p9hguiw45kbjhvmzxdfnb0vd19cim'],
     cookie: {
-        secure: true,
+        secure: true, //a boolean indicating whether the cookie is only to be sent over HTTPS (false by default for HTTP, true by default for HTTPS).
         httpOnly: true,
         domain: 'tyust.edu.cn',
-        expires: expiryDate
+        expires: expiryDate // cookie 的有效期或者用maxAge属性
     }
 }));
 app.use(require('express-session')({
@@ -55,6 +55,9 @@ app.use(require('express-session')({
     resave: false,
     saveUninitialized: false
 }));
+//启用passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -63,16 +66,15 @@ app.use('/users', users);
 app.use('/article', article);
 
 // passport config
-app.use(passport.initialize());
-app.use(passport.session());
 var Account = require('./models/account');
-passport.use(new LocalStrategy(Account.authenticate()));
+passport.use(Account.createStrategy());
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
 
 
 // mongoose
+
 mongoose.connect('mongodb://localhost/sunshine');
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
