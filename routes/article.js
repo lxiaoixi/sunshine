@@ -231,7 +231,30 @@ router.get('/sunPeople', function(req, res, next) {
 })
 
 //一级菜单'预防教育'
-
+router.get('/preventionCrime', function(req, res, next) {
+        Article
+            .find({})
+            .populate('articleType procuratorate')
+            .exec(function(err, articles) {
+                var Articles = [];
+                for (var i = 0; i < articles.length; i++) {
+                    if (articles[i].articleType.typeName == '预防教育') {
+                        Articles.push(articles[i]);
+                    }
+                }
+                res.render('preventionCrime', { title: '预防教育', Articles: Articles });
+            })
+    })
+    //预防教育子菜单
+router.get('/crime_details1', function(req, res, next) {
+    var _id = req.query._id;
+    Article
+        .findOne({ _id: _id })
+        .populate('articleType procuratorate')
+        .exec(function(err, Article) {
+            res.render('news_details1', { title: '预防教育', Article: Article });
+        })
+})
 
 
 module.exports = router;
