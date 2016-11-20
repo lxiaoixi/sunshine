@@ -2,10 +2,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Procuratorate = new Schema({
-    procuratorateId: String,
-    name: String,
-    level:String,
-    parent:{type: mongoose.Schema.Types.ObjectId, ref: 'Procuratorate'},
+
+    proName: String,
+    level: String,
+    parent: { type: mongoose.Schema.Types.ObjectId, ref: 'Procuratorate' },
     province: String,
     region: String,
     county: String,

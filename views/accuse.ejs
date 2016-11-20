@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+    <%- include('admin/portal/head'); %>
+    <script src="/javascripts/echarts.min.js"></script>
+      <%#引用ueditor%>
+   <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
+ <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
+ <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"> </script>
+</head>
+<body data-type="index">
+	<!-- topbar start //-->
+    <%- include('admin/portal/header') %>
+	<!-- topbar end //-->
+    <div class="am-cf admin-main">
+    			<!-- side nav bar start //-->
+        <%- include('admin/portal/sidernav') %>
+			<!-- side nav bar end //-->
+
+
+<div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">稿件管理</strong> / <small>新增稿件</small></div>
+      </div>
+
+      <hr/>
+
+      
+
+        <div class="am-u-sm-12 am-u-md-12 am-u-md-pull-12">
+          <form class="am-form am-form-horizontal"  action="/accuse" method="post">
+            <div class="am-form-group">
+              <label for="user-name" class="am-u-sm-3 am-form-label">姓名</label>
+              <div class="am-u-sm-9">
+                <input type="text" id="user-name" name="name" placeholder="">
+              </div>
+            </div>
+
+           
+            <div class="am-form-group">
+              <label for="user-name" class="am-u-sm-3 am-form-label">电话</label>
+              <div class="am-u-sm-9">
+                <input type="text" id="user-name" name="tel" placeholder="">
+              </div>
+            </div>
+
+         <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">举报内容</label>
+                                    <div class="am-u-sm-9">
+                                        <textarea class="" rows="10" id="user-intro" name="content" placeholder=""></textarea>
+                                    </div>
+                                </div>
+                                 <input type="hidden" class="tpl-form-input" id="user-name" name="type" value="控诉举报">
+
+            <div class="am-form-group">
+              <div class="am-u-sm-9 am-u-sm-push-3">
+                <button type="submit" class="am-btn am-btn-primary">提交</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <footer class="admin-content-footer">
+      <hr>
+      <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    </footer>
+
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/stylesheets/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/javascripts/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="/javascripts/amazeui.min.js"></script>
+<script src="/javascripts/app.js"></script>
+<script>
+	
+		$('#add a:first-child').append('<span class="am-icon-star am-fr am-margin-right admin-icon-red"></span>');
+	</script>
+</body>
+</html>

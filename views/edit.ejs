@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <%- include('admin/portal/head'); %>
+   
+   
+</head>
+<body data-type="index">
+	<!-- topbar start //-->
+    <%- include('admin/portal/header') %>
+	<!-- topbar end //-->
+    <div class="am-cf admin-main">
+    			<!-- side nav bar start //-->
+        <%- include('admin/portal/sidernav') %>
+			<!-- side nav bar end //-->
+
+
+<div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">稿件管理</strong> / <small>编辑稿件</small></div>
+      </div>
+
+      <hr/>
+
+      
+
+        <div class="am-u-sm-12 am-u-md-12 am-u-md-pull-12">
+          <form class="am-form am-form-horizontal"  action="/article/update" method="post">
+           <input type="hidden" name="_id" value="<%=articles._id%>">
+                                <div class="am-form-group">
+                                    <label for="title" class="am-u-sm-3 am-form-label">标题 <span class="tpl-form-line-small-title">Title</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="tltle" name="title" value="<%=articles.title%>">
+                                       
+                                    </div>
+                                </div>
+
+                                
+                                
+                                <div class="am-form-group">
+                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">添加分类 <span class="tpl-form-line-small-title">Type</span></label>
+                                    <div class="am-u-sm-12 am-u-md-3">
+                                     
+                                        <select data-am-selected="{btnSize: 'sm'}" name="articleType" id="user-weibo" >
+                                        <%articletypes.forEach(function(articletype){ %>
+                                            <option value="<%=articletype._id%>"><%=articletype.typeName%></option>
+                                            <%})%>
+                                        </select>
+                                   
+                                    </div>
+                                </div>
+
+                                 <div class="am-form-group">
+                                    <label for="user-weibo" class="am-u-sm-3 am-form-label">检察院归属 <span class="tpl-form-line-small-title">Type</span></label>
+                                    <div class="am-u-sm-12 am-u-md-3">
+                                     
+                                        <select data-am-selected="{btnSize: 'sm'}" name="procuratorate" id="user-weibo" >
+                                        <%procuratorates.forEach(function(procuratorate){ %>
+                                            <option value="<%=procuratorate._id%>"><%=procuratorate.proName%></option>
+                                            <%})%>
+                                        </select>
+                                   
+                                    </div>
+                                </div>
+                                
+                              <div class="am-form-group">
+                                    <label for="user-name" class="am-u-sm-3 am-form-label">作者 <span class="tpl-form-line-small-title">Author</span></label>
+                                    <div class="am-u-sm-9">
+                                        <input type="text" class="tpl-form-input" id="user-name" name="author" value="<%=articles.author%>">
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <label for="user-intro" class="am-u-sm-3 am-form-label">文章内容</label>
+                                    <div class="am-u-sm-9">
+                                        <textarea class="" rows="10" id="user-intro" name="content"><%=articles.content%></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="am-form-group">
+                                    <div class="am-u-sm-9 am-u-sm-push-3">
+                                        <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交修改</button>
+                                    </div>
+                                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+   <footer class="admin-content-footer">
+      <hr>
+      
+        <div style="text-align:center">技术支持:北京中检旭风科技发展有限责任公司</div>
+     
+    </footer>
+
+  </div>
+  <!-- content end -->
+
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<footer>
+  <hr>
+  <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+</footer>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="/js/amazeui.min.js"></script>
+<script src="/js/app.js"></script>
+
+</body>
+</html>

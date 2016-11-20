@@ -1,78 +1,66 @@
-<div class="tpl-left-nav tpl-left-nav-hover">
-            <div class="tpl-left-nav-title">
-                Amaze UI 列表
-            </div>
-            <div class="tpl-left-nav-list">
-                <ul class="tpl-left-nav-menu">
-                    <li class="tpl-left-nav-item">
-                        <a href="index.html" class="nav-link active">
-                            <i class="am-icon-home"></i>
-                            <span>首页</span>
-                        </a>
-                    </li>
-                    <li class="tpl-left-nav-item">
-                        <a href="chart.html" class="nav-link tpl-left-nav-link-list">
-                            <i class="am-icon-bar-chart"></i>
-                            <span>数据表</span>
-                            <i class="tpl-left-nav-content tpl-badge-danger">12</i>
-                        </a>
-                    </li>
-                    <li class="tpl-left-nav-item">
-                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                            <i class="am-icon-table"></i>
-                            <span>表格</span>
-                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right"></i>
-                        </a>
-                        <ul class="tpl-left-nav-sub-menu">
-                            <li>
-                                <a href="table-font-list.html">
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>文字表格</span>
-                                    <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
-                                </a>
-                                <a href="table-images-list.html">
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>图片表格</span>
-                                    <i class="tpl-left-nav-content tpl-badge-success">18</i>
-                                    <a href="form-news.html">
-                                        <i class="am-icon-angle-right"></i>
-                                        <span>消息列表</span>
-                                        <i class="tpl-left-nav-content tpl-badge-primary">5</i>
-                                        <a href="form-news-list.html">
-                                            <i class="am-icon-angle-right"></i>
-                                            <span>文字列表</span>
-                                        </a>
-									</a>
-								</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="tpl-left-nav-item">
-                        <a href="javascript:;" class="nav-link tpl-left-nav-link-list">
-                            <i class="am-icon-wpforms"></i>
-                            <span>表单</span>
-                            <i class="am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right tpl-left-nav-more-ico-rotate"></i>
-                        </a>
-                        <ul class="tpl-left-nav-sub-menu" style="display: block;">
-                            <li>
-                                <a href="form-amazeui.html">
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>Amaze UI 表单</span>
-                                    <i class="am-icon-star tpl-left-nav-content-ico am-fr am-margin-right"></i>
-                                </a>
-                                <a href="form-line.html">
-                                    <i class="am-icon-angle-right"></i>
-                                    <span>线条表单</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="tpl-left-nav-item">
-                        <a href="login.html" class="nav-link tpl-left-nav-link-list">
-                            <i class="am-icon-key"></i>
-                            <span>登录</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list">
+        <li><a href="/"><span class="am-icon-home am-icon-sm"></span> 首页</a></li>
+        <li class="admin-parent">
+          <a class="am-cf " href="javascript:;" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-folder-open"></span> 稿件管理<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav1">
+            <li id="add"><a href="/article/add" class="am-cf"><span class="am-icon-pencil-square-o"></span> 新增稿件</a></li>
+            <li id="list"><a href="/article/list" class="am-cf"><span class="am-icon-list"></span> 稿件列表</a></li>
+            <li id="check"><a href="admin-user.html" class="am-cf"><span class="am-icon-search-plus"></span> 审核稿件</a></li>
+            <li id="type"><a href="/article/type" class="am-cf"><span class="am-icon-pencil-square"></span> 新增类别</a></li>
+            <li id="typeList"><a href="/article/typeList" class="am-cf"><span class="am-icon-list-ul"></span> 类别列表</a></li>
+            <li id="out"><a href="admin-user.html" class="am-cf"><span class="am-icon-newspaper-o"></span> 外部稿件</a></li>
+          </ul>
+        </li>
+
+        <li class="admin-parent">
+          <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><span class="am-icon-youtube-play"></span> 媒体库<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav2">
+            <li id="vedio"><a href="admin-user.html" class="am-cf"><span class="am-icon-video-camera"></span> 视频信息</a></li>
+            <li id="image"><a href="admin-user.html" class="am-cf"><span class="am-icon-photo"></span> 图片信息</a></li>
+            <li id="audio"><a href="admin-user.html" class="am-cf"><span class="am-icon-music"></span> 音频信息</a></li>
+          </ul>
+        </li>
+
+        <li class="admin-parent">
+          <a class="am-cf " data-am-collapse="{target: '#collapse-nav3'}"><span class="am-icon-send-o"></span> 一键发布<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav3">
+            <li id="towechat"><a href="admin-user.html" class="am-cf"><span class="am-icon-weixin"></span> 发布到微信</a></li>
+            
+          </ul>
+        </li>
+
+         <li class="admin-parent">
+          <a class="am-cf " data-am-collapse="{target: '#collapse-nav5'}"><span class="am-icon-smile-o"></span> 预约申请管理<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav5">
+            <li id="info"><a href="/chargemessage" class="am-cf"><span class="am-icon-info" style="margin-left:5px;"></span> 检举信息</a></li>
+            <li id=""><a href="admin-user.html" class="am-cf"><span class="am-icon-gavel" style="margin-right:-2px;margin-left:-2px;"></span> 律师预约</a></li>
+            <li id=""><a href="admin-user.html" class="am-cf"><span class="am-icon-file-word-o"></span> 档案查询预约</a></li>
+            <li id=""><a href="admin-user.html" class="am-cf"><span class="am-icon-file-text-o"></span> 案件查询预约</a></li>
+          </ul>
+        </li>
+
+
+        <li class="admin-parent">
+          <a class="am-cf am-collapsed" data-am-collapse="{target: '#collapse-nav4'}"><span class="am-icon-gears"></span> 系统管理<span class="am-icon-angle-right am-fr am-margin-right"></span></a>
+          <ul class="am-list am-collapse admin-sidebar-sub" id="collapse-nav4">
+            <li id="setsystem"><a href="admin-user.html" class="am-cf"><span class="am-icon-gear"></span> 系统设置</a></li>
+            <li id="setwechat"><a href="admin-user.html" class="am-cf"><span class="am-icon-weixin"></span> 微信设置</a></li>
+           
+            <li id="setoption"><a href="admin-user.html" class="am-cf"><span class="am-icon-wrench"></span> 操作记录</a></li>
+    
+          </ul>
+        </li>
+      </ul>
+
+      <div class="am-panel am-panel-default admin-sidebar-panel">
+        <div class="am-panel-bd">
+          <p><span class="am-icon-bookmark"></span> 公告</p>
+          <p>暂无公告</p>
         </div>
+      </div>
+
+      
+    </div>
+  </div>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+    <%- include('admin/portal/head'); %>
+    
+</head>
+<body data-type="index">
+	<!-- topbar start //-->
+    <%- include('admin/portal/header') %>
+	<!-- topbar end //-->
+    <div class="am-cf admin-main">
+    			<!-- side nav bar start //-->
+        <%- include('admin/portal/sidernav') %>
+			<!-- side nav bar end //-->
+
+
+
+<div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">稿件管理</strong> / <small>类型列表</small></div>
+      </div>
+
+      <hr>
+
+      <div class="am-g">
+        <div class="am-u-sm-12 am-u-md-6">
+          <div class="am-btn-toolbar">
+            <div class="am-btn-group am-btn-group-xs">
+              <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+              <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
+              <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="am-u-sm-12 am-u-md-3">
+          <div class="am-input-group am-input-group-sm">
+            <input type="text" class="am-form-field">
+          <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button">搜索</button>
+          </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="am-g">
+        <div class="am-u-sm-12">
+          <form class="am-form">
+            <table class="am-table am-table-striped am-table-hover table-main">
+              <thead>
+              <tr>
+                  <th class="table-check"><input onclick="selectAll()" type="checkbox" name="controlAll" style="controlAll" id="controlAll" class="tpl-table-fz-check"></th>
+                  <th class="table-id">ID</th><th class="table-title">文章类型名称</th>
+                  <th class="table-type">描述</th>
+                  <th class="table-set">操作</th>
+              </tr>
+              </thead>
+              <tbody>
+               <%for(var i=0;i<articletypes.length;i++){ %>
+              <tr>
+                <td><input type="checkbox" name="selected"/></td>
+                <td><%=i+1%></td>
+                <td><a href="#"><%=articletypes[i].typeName%></a></td>
+                <td><%=articletypes[i].description%></td>
+                <td>
+                  <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <a href="/article/typeEdit?_id=<%=articletypes[i]._id%>" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</a>
+
+                      <a href="/article/typeDel?_id=<%=articletypes[i]._id%>" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</a>
+
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <%}%>
+              </tbody>
+            </table>
+            <div class="am-cf">
+              共 15 条记录
+              <div class="am-fr">
+                <ul class="am-pagination">
+                  <li class="am-disabled"><a href="#">«</a></li>
+                  <li class="am-active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+              </div>
+            </div>
+            <hr />
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="admin-content-footer">
+      <hr>
+      
+        <div style="text-align:center">技术支持:北京中检旭风科技发展有限责任公司</div>
+     
+    </footer>
+
+  </div>
+  <!-- content end -->
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+
+
+ <script>
+        function selectAll(){
+            var checklist = document.getElementsByName('selected');
+            if(document.getElementById('controlAll').checked) {
+                for(var i=0;i<checklist.length;i++) {
+                    checklist[i].checked = 1;
+                }
+            }else{
+                for(var j=0;j<checklist.length;j++) {
+                    checklist[j].checked = 0;
+                }
+            }
+        }
+        
+    </script>
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="/js/amazeui.min.js"></script>
+<script src="/js/app.js"></script>
+ <script>
+     $('#collapse-nav1').collapse();
+		$('#typeList a:first-child').append('<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>');
+	</script>
+</body>
+</html>

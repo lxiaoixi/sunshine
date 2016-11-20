@@ -1,56 +1,103 @@
 <!doctype html>
 <html>
-
-<head>
-  <meta charset="utf-8">
+<head lang="en">
+ <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><%= title %></title>
-  <meta name="description" content="阳光检务系统">
-  <meta name="keywords" content="阳光检务,两微一端,行贿档案查询">
+  <title><%=title%></title>
+  <meta name="description" content="这是一个 index 页面">
+  <meta name="keywords" content="index">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="renderer" content="webkit">
   <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <link rel="icon" type="image/png" href="/i/favicon.ico">
-  <link rel="apple-touch-icon-precomposed" href="/i/app-icon72x72@2x.png">
-  <meta name="apple-mobile-web-app-title" content="阳光检务" />
-  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.7.2/css/amazeui.min.css" />
-  <link rel="stylesheet" href="/stylesheets/admin.css">
-  <link rel="stylesheet" href="/stylesheets/app.css">
+  <link rel="icon" type="image/png" href="/i/examples/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="/i/examples//app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="/css/admin.css">
+  <style>
+    body{
+      background-image: url(/images/login2.jpg);
+      background-size: 100% 100%;
+    }
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
 </head>
+<body>
+  <div class="header">
+    <div class="am-g">
+      <img src="/images/login1.jpg" width="90px" height="90px" style="position: absolute;top: 10px;left:23%">
+      <h1>汾阳市人民检察院微信公众号管理平台</h1>
+      <p>Integrated Of The New Media Environment<br/>文章编辑，模版生成，集中发布，统一管理</p>
+    </div>
+    <hr />
+  </div>
 
-<body data-type="login">
+  <div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+      <h3>登录</h3>
+      <hr>
+      <!-- <div class="am-btn-group">
+        <a href="#" class="am-btn am-btn-secondary am-btn-sm"><i class="am-icon-wechat am-icon-sm"></i> Wechat</a>
+        <a href="#" class="am-btn am-btn-success am-btn-sm"><i class="am-icon-weibo am-icon-sm"></i> Weibo</a>
+      </div> -->
+      <br>
+      <br>
+      <form action="/users/login" method="post" role="form" class="am-form">
+        <input type="hidden" name="_csrf" value="<%=csrf_token%>">
+        <label for="username">用户名:</label>
+        <input type="text" name="username" id="username" value="" required/>
+        <br>
+        <label for="password">密码:</label>
+        <input type="password" name="password" id="password" value="" required/>
+        <br>
+        <label for="remember-me">
+          <input id="remember-me" name="remember-me" type="checkbox"/>
+          记住我
+        </label>
+        <br />
+        <div class="am-cf">
+          <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">
+          <a class="am-btn am-btn-sm am-btn-secondary" href="/users/register">注 册</a>
+          <input type="submit" name="" value="忘记密码 ^_^? " class="am-btn am-btn-default am-btn-sm am-fr">
+        </div>
+      </form>
+      <div id="copyright">
+        <hr>
+        <div style="text-align:center">技术支持:北京中检旭风科技发展有限责任公司</div>
+      </div>
+    </div>
+  </div>
 
-  <div class="am-g myapp-login">
-	<div class="myapp-login-logo-block  tpl-login-max">
-		<div class="myapp-login-logo-text">
-			<div class="myapp-login-logo-text">
-				阳光检务<span> Login</span> <i class="am-icon-skyatlas"></i>
-			</div>
-		</div>
+ <!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
 
-		<div class="login-font">
-			<i>Log In </i> or <span> Sign Up</span>
-		</div>
-		<div class="am-u-sm-10 login-am-center">
-			<form class="am-form" action="/login" method="post">
-				<fieldset>
-					<div class="am-form-group">
-						<input type="text" class="" id="doc-ipt-email-1" placeholder="输入用户名" name="username">
-					</div>
-					<div class="am-form-group">
-						<input type="password" class="" id="doc-ipt-pwd-1" placeholder="设置个密码吧" name="password">
-					</div>
-                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-					<p><button type="submit" class="am-btn am-btn-default">登录</button></p>
-				</fieldset>
-			</form>
-		</div>
-	</div>
-</div>
-
-  <script src="/javascripts/jquery.min.js"></script>
-  <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
-  <script src="/javascripts/app.js"></script>
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="/js/amazeui.min.js"></script>
+<script src="/js/app.js"></script>
+  <script>
+    (function(){
+      if(document.body.clientHeight< window.innerHeight){
+        var space = window.innerHeight - document.body.clientHeight - 10;
+        document.querySelector("#copyright").setAttribute("style","margin-top:"+space+"px");
+      }else{
+        document.querySelector("#copyright").setAttribute("style","margin-top:50px");
+      }
+    })()
+  </script>
 </body>
-
 </html>
