@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <%- include('admin/portal/head'); %>
+   
+</head>
+<body data-type="index">
+	<!-- topbar start //-->
+    <%- include('admin/portal/header') %>
+	<!-- topbar end //-->
+    <div class="am-cf admin-main">
+    			<!-- side nav bar start //-->
+        <%- include('admin/portal/sidernav') %>
+			<!-- side nav bar end //-->
+
+
+
+<div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">媒体库</strong> / <small>音频信息</small></div>
+      </div>
+
+      <hr>
+
+      <ul class="am-avg-sm-2 am-avg-md-4 am-avg-lg-6 am-margin gallery-list">
+        <%for(var i=0;i<audios.length;i++){ %>
+        <li>
+          <a href="#">
+            
+           <audio controls>
+              
+                <source src="/images/<%=audios[i].filename%>" type="audio/mp3">
+
+            </audio>
+            <div class="gallery-title"><%=audios[i].description%></div>
+            <div class="gallery-desc"><%=audios[i].originalname%></div>
+          </a>
+        </li>
+        <%}%>
+      </ul>
+
+      <div class="am-margin am-cf">
+        <hr/>
+        <p class="am-fl">共 15 条记录</p>
+        <ol class="am-pagination am-fr">
+          <li class="am-disabled"><a href="#">&laquo;</a></li>
+          <li class="am-active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">&raquo;</a></li>
+        </ol>
+      </div>
+    </div>
+      
+
+    <footer class="admin-content-footer">
+      <hr>
+      
+        <div style="text-align:center">技术支持:北京中检旭风科技发展有限责任公司</div>
+     
+    </footer>
+
+  </div>
+  <!-- content end -->
+</div>
+
+
+
+
+
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="/js/amazeui.min.js"></script>
+<script src="/js/app.js"></script>
+<script>
+   $('#collapse-nav2').collapse();
+		$('#audio a:first-child').append('<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>');
+	</script>
+</body>
+</html>

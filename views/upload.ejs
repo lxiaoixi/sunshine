@@ -4,11 +4,8 @@
 <html>
 <head>
     <%- include('admin/portal/head'); %>
-    <script src="/javascripts/echarts.min.js"></script>
-      <%#引用ueditor%>
-   <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.config.js"></script>
- <script type="text/javascript" charset="utf-8" src="/ueditor/ueditor.all.min.js"> </script>
- <script type="text/javascript" charset="utf-8" src="/ueditor/lang/zh-cn/zh-cn.js"> </script>
+
+   
 </head>
 <body data-type="index">
 	<!-- topbar start //-->
@@ -40,11 +37,25 @@
                 </div>
                 <div class="am-u-md-8">
                   <p>你可以使用<a href="#">gravatar.com</a>提供的头像或者使用本地上传头像。 </p>
-                  <form class="am-form" method="post" action='/upload' enctype='multipart/form-data'>
+                  <form class="am-form" method="post" action='/media/upload' enctype='multipart/form-data'>
                     <div class="am-form-group">
                       <input name="avatar" id='upfile' type='file'/>
                       <p class="am-form-help">请选择要上传的文件...</p>
+                     <div class="am-form-group">
+                                   
+                              <textarea class="" rows="2" id="user-intro" name="description">文件描述</textarea>
+                                    
+                       </div>
+                      <div class="am-form-group">
+                      <select name="mediatype">
+                        <option value="image">图片</option>
+                        <option value="video">视频</option>
+                        <option value="audio">音频</option>
+                      </select>
+                      </div>
+                      <div>
                       <input type="submit" class="am-btn am-btn-primary am-btn-xs" value="保存">
+                      </div>
                     </div>
                   </form>
                 </div>

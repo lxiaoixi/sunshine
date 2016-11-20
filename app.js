@@ -24,6 +24,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var article = require('./routes/article');
 var ueditor = require('./routes/ueditor');
+var media = require('./routes/media');
 //var weixin = require('./routes/weixin');
  
 
@@ -79,6 +80,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/article', article);
 app.use('/ueditor', ueditor);
+app.use('/media', media);
 //app.use('/weixin',weixin);
  
 //微信

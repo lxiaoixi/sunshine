@@ -18,31 +18,11 @@
 <div class="admin-content">
     <div class="admin-content-body">
       <div class="am-cf am-padding am-padding-bottom-0">
-        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">稿件管理</strong> / <small>类型列表</small></div>
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">稿件管理</strong> / <small>审核稿件列表</small></div>
       </div>
 
       <hr>
 
-      <div class="am-g">
-        <div class="am-u-sm-12 am-u-md-6">
-          <div class="am-btn-toolbar">
-            <div class="am-btn-group am-btn-group-xs">
-              <button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-              <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
-              <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
-            </div>
-          </div>
-        </div>
-        
-        <div class="am-u-sm-12 am-u-md-3">
-          <div class="am-input-group am-input-group-sm">
-            <input type="text" class="am-form-field">
-          <span class="am-input-group-btn">
-            <button class="am-btn am-btn-default" type="button">搜索</button>
-          </span>
-          </div>
-        </div>
-      </div>
 
       <div class="am-g">
         <div class="am-u-sm-12">
@@ -56,38 +36,30 @@
                                             <th class="table-type">类别</th>
                                             <th class="table-type">检察院</th>
                                             <th class="table-author am-hide-sm-only">作者</th>
-                                            <th class="table-date am-hide-sm-only">发布日期</th>
+                                            <th class="table-date am-hide-sm-only">发稿日期</th>
                                             <th class="table-set">操作</th>
                                         </tr>
                                     </thead>
               <tbody>
-                                         <%for(var i=0;i<ArticleChecked.length;i++){ %>
+                                         <%for(var i=0;i<ArticleUnchecked.length;i++){ %>
                                         
                                         <tr>
                                             
                                             <td><input type="checkbox" name="selected"></td>
                                             <td><%=i+1%></td>
-                                            <td><a href="/article/content?title=<%=ArticleChecked[i].title%>"><%=ArticleChecked[i].title%></a></td>
+                                            <td><a href="#"><%=ArticleUnchecked[i].title%></a></td>
 
-                                            <td><%=ArticleChecked[i].articleType.typeName%></td>
-                                            <td><%=ArticleChecked[i].procuratorate.proName%></td>
-                                            <td class="am-hide-sm-only"><%=ArticleChecked[i].author%></td>
+                                            <td><%=ArticleUnchecked[i].articleType.typeName%></td>
+                                            <td><%=ArticleUnchecked[i].procuratorate.proName%></td>
+                                            <td class="am-hide-sm-only"><%=ArticleUnchecked[i].author%></td>
                                             <td class="am-hide-sm-only"><%=date[i]%></td>
-                                            <td>
-                                                <div class="am-btn-toolbar">
-                                                    <div class="am-btn-group am-btn-group-xs">
-                                                     <a href="/article/edit?_id=<%=ArticleChecked[i]._id%>" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</a>
-                                                        
-                                                   
-                                                    </div>
-                                                </div>
-                                            </td>
+                                            
                                              <td>
                                                 <div class="am-btn-toolbar">
                                                     <div class="am-btn-group am-btn-group-xs">
-                                                     
+                                                     <a href="/article/checked?_id=<%=ArticleUnchecked[i]._id%>" class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 审核</a>
                                                         
-                                                     <a href="/article/del?_id=<%=ArticleChecked[i]._id%>" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</a>
+                                                   
                                                     </div>
                                                 </div>
                                             </td>
@@ -98,7 +70,7 @@
                                     </tbody>
             </table>
             <div class="am-cf">
-             
+            
               <div class="am-fr">
                 <ul class="am-pagination">
                   <li class="am-disabled"><a href="#">«</a></li>
@@ -148,6 +120,8 @@
         }
         
     </script>
+
+   
 <a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 
 
@@ -165,7 +139,7 @@
 <script src="/js/app.js"></script>
 <script>
    $('#collapse-nav1').collapse();
-		$('#list a:first-child').append('<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>');
+		$('#check a:first-child').append('<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>');
 	</script>
 </body>
 </html>

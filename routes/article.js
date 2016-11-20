@@ -89,20 +89,26 @@ router.post('/add', function(req, res, next) {
     var content = req.body.content;
     var articleType = req.body.articleType;
     var procuratorate = req.body.procuratorate;
-
+    var isChecked = req.body.isChecked;
     var article = new Article({
         title: title,
         author: author,
         content: content,
-
+        isChecked: isChecked,
         procuratorate: procuratorate,
         articleType: articleType
     });
 
+
     article.save(function(err, articles) {
         if (err) console.log(err);
         console.log(articles);
-        res.redirect('/article/list');
+        if (isChecked == 'true') {
+            res.redirect('/article/list');
+        } else {
+            res.redirect('/article/uncheck');
+        }
+
     })
 })
 
@@ -113,14 +119,70 @@ router.get('/list', function(req, res, next) {
         .populate('articleType procuratorate')
         .exec(function(err, Articles) {
             var date = [];
-            for (var i = 0; i < Articles.length; i++) {
-                date.push(moment(Articles[i].createAt).format('YYYY/MM/DD, h:mm:ss a'));
+            var ArticleChecked = [];
 
+            for (var i = 0; i < Articles.length; i++) {
+
+                if (Articles[i].isChecked == true) {
+                    ArticleChecked.push(Articles[i])
+                    date.push(moment(Articles[i].createAt).format('YYYY/MM/DD, h:mm:ss a'));
+                }
             }
-            res.render('article-list', { title: '文章列表', Articles: Articles, date: date });
+            res.render('article-list', { title: '文章列表', ArticleChecked: ArticleChecked, date: date });
         })
 
 })
+
+//审核稿件列表
+router.get('/uncheck', function(req, res, next) {
+    Article
+        .find({})
+        .populate('articleType procuratorate')
+        .exec(function(err, Articles) {
+            var date = [];
+            var ArticleUnchecked = [];
+
+            for (var i = 0; i < Articles.length; i++) {
+
+                if (Articles[i].isChecked == false) {
+                    ArticleUnchecked.push(Articles[i])
+                    date.push(moment(Articles[i].createAt).format('YYYY/MM/DD, h:mm:ss a'));
+                }
+            }
+            res.render('checklist', { title: '审核稿件', ArticleUnchecked: ArticleUnchecked, date: date });
+        })
+})
+
+//获取审核稿件详情
+router.get('/checked', function(req, res, next) {
+        var _id = req.query._id;
+
+        Article
+            .findOne({ _id: _id })
+            .populate('procuratorate')
+            .exec(function(err, article) {
+
+                var date = moment(article.createAt).format('YYYY/MM/DD, h:mm:ss a');
+                res.render('checked', { title: '审核稿件详情', article: article, date: date });
+            })
+    })
+    //同意发布
+router.post('/checked', function(req, res, next) {
+    var isChecked = req.body.isChecked;
+    var _id = req.body._id;
+
+    if (isChecked == 'true') {
+        Article.update({ _id: _id }, { $set: { isChecked: isChecked } }, function(err, result) {
+            if (err) console.log(err);
+            res.redirect('/article/list');
+        })
+    } else {
+        res.redirect('/article/uncheck');
+    }
+})
+
+
+
 
 //删除文章
 

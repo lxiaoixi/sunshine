@@ -11,6 +11,7 @@ var Article = new Schema({
     comment: String,
     readNums: Number,
     isExpired: Boolean,
+    isChecked: Boolean,
     createAt: { type: Date, default: Date.now },
     updateAt: { type: Date, default: Date.now },
 

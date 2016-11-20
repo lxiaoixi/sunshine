@@ -1,19 +1,151 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html>
-<head>
-    <title><%= title %></title>
+<head lang="en">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title><%=title%></title>
+  <meta name="keywords" content="检察,新媒体,统一发布平台,检务公开,检务软件开发">
+  <meta name="description" content="山西省新媒体矩阵平台">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache／-Control" content="no-siteapp" />
+  <meta property="wb:webmaster" content="914a8ea843f34c40" />
+
+  <link rel="icon" type="image/gif" href="/icon/animated_favicon1.gif" >
+  <link rel="stylesheet" href="http://cdn.amazeui.org/amazeui/2.6.1/css/amazeui.min.css"/>
+  <style>
+    body{
+      background-image: url(img/2.jpg);
+      background-size: 100% 100%;
+    }
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+    .header p {
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Register</h1>
-    <br>
-    <form action="/users/register" method="post">
-        User:<input type="text" name="username">
-        <br>
-        Pass:<input type="password" name="password">
-        <br>
+  <div class="header">
+    <div class="am-g">
+      <img src="/images/login1.jpg" width="90px" height="90px" style="position: absolute;top: 10px;left:23%">
+      <h1>汾阳市人民检察院微信公众号管理平台</h1>
+      <p>Integrated Of The New Media Environment<br/>文章编辑，模版生成，集中发布，统一管理</p>
+    </div>
+    <hr />
+  </div>
+
+  <div class="am-g">
+    <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered">
+      <h3>注册</h3>
+      <hr>
+      <form method="post" class="am-form" action="/users/register">
+        <input type="hidden" name="_csrf" value="lmAEZOfp-tx135NvZCTfjTz-wUuuURoOeE9E" />
+        <div class="am-form-group">
+          <label for="name">用户名：</label>
+          <input type="text" name="name" id="name" minlength="3" placeholder="输入用户名（至少 3 个字符）" required/>
+        </div>
+        <div class="am-form-group">
+          <label for="name">姓名：</label>
+          <input type="text" name="realname" id="realname" placeholder="输入您的真实姓名" required/>
+        </div>
+        <div class="am-form-group">
+          <label for="email">邮箱：</label>
+          <input type="email" name="email" id="email" placeholder="输入邮箱" required/>
+        </div>
+        <div class="am-form-group">
+          <label for="mobile">手机号：</label>
+          <input type="text" name="mobile" id="mobile" class="mobile" placeholder="输入手机号" pattern="^1((3|5|8){1}\d{1}|70)\d{8}$" required/>
+        </div>
+        <div class="am-form-group">
+          <label for="password">密码:</label>
+        <input type="password" name="password" id="password" placeholder="输入密码" required>
+        </div>
+      
         
-        <button type="submit" class="btn btn-large btn-block btn-default">Submit</button>
-        
-    </form>
+        <input type="hidden" name="role" id='role' value="" />
+        <br />
+        <div class="am-cf">
+          <input type="submit" name="" value="注 册" class="am-btn am-btn-primary am-btn-sm am-fl">
+          <a class="am-btn am-btn-default am-btn-sm am-fr" href="/">登 录</a>
+        </div>
+      </form>
+      
+    </div>
+    <div id="copyright">
+      <hr>
+      <div style="text-align:center">技术支持:北京中检旭风科技发展有限责任公司</div>
+    </div>
+  </div>
+
+  <!--[if lt IE 9]>
+    <script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="http://cdn.amazeui.org/amazeui/2.6.1/js/amazeui.ie8polyfill.min.js"></script>
+  <![endif]-->
+
+  <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="http://cdn.staticfile.org/jquery/2.1.1-rc2/jquery.min.js"></script>
+  <!--<![endif]-->
+  <script src="http://cdn.amazeui.org/amazeui/2.6.1/js/amazeui.min.js"></script>
+  <script src="http://cdn.amazeui.org/amazeui/2.6.1/js/amazeui.widgets.helper.min.js"></script>
+  <!-- <script src="js/app.js"></script> -->
+  <script type="text/javascript">
+    (function(){
+      if(document.body.clientHeight< window.innerHeight){
+        var space = window.innerHeight - document.body.clientHeight - 10;
+        document.querySelector("#copyright").setAttribute("style","margin-top:"+space+"px");
+      }else{
+        document.querySelector("#copyright").setAttribute("style","margin-top:50px");
+      }
+    })()
+    const citys = {"太原":["太原市人民检察院","迎泽区人民检察院","杏花岭区人民检察院","万柏林区人民检察院","小店区人民检察院","晋源区人民检察院","尖草坪区人民检察院","古交市人民检察院","清徐县人民检察院","阳曲县人民检察院","娄烦县人民检察院","太原铁路运输检察分院","太原铁路运输检察院","西域地区人民检察院"],"大同":["大同市人民检察院","城区人民检察院","矿区人民检察院","南郊区人民检察院","新荣区人民检察院","大同县人民检察院","阳高县人民检察院","天镇县人民检察院","浑源县人民检察院","灵丘县人民检察院","广灵县人民检察院","左云县人民检察院","大同铁路运输检察院"],"忻州":["忻州市人民检察院","忻府区人民检察院","定襄县人民检察院","原平市人民检察院","五台县人民检察院","代县人民检察院","繁峙县人民检察院","宁武县人民检察院","神池县人民检察院","五寨县人民检察院","岢岚县人民检察院","静乐县人民检察院","河曲县人民检察院","保德县人民检察院","偏关县人民检察院"],"朔州":["朔州市人民检察院","朔城区人民检察院","平鲁区人民检察院","山阴县人民检察院","怀仁县人民检察院","应县人民检察院","右玉县人民检察院"],"吕梁":["吕梁市人民检察院","交城县人民检察院","文水县人民检察院","汾阳市人民检察院","孝义市人民检察院","石楼县人民检察院","交口县人民检察院","中阳县人民检察院","柳林县人民检察院","离市区人民检察院","临县人民检察院","兴县人民检察院","岚县人民检察院","方山县人民检察院"],"阳泉":["阳泉市人民检察院","城区人民检察院","矿区人民检察院","郊区人民检察院","平定县人民检察院","盂县人民检察院","萌营地区人民检察院"],"晋中":["晋中市人民检察院","榆次区人民检察院","太谷县人民检察院","祁县人民检察院","平遥县人民检察院","介休市人民检察院","灵石县人民检察院","寿阳县人民检察院","昔阳县人民检察院","和顺县人民检察院","左权县人民检察院","榆社县人民检察院"],"临汾":["临汾市人民检察院","尧都区人民检察院","侯马市人民检察院","霍州市人民检察院","洪洞县人民检察院","襄汾县人民检察院","曲沃县人民检察院","翼城县人民检察院","乡宁县人民检察院","蒲县人民检察院","汾西县人民检察院","吉县人民检察院","浮山县人民检察院","安泽县人民检察院","古县人民检察院","隰县人民检察院","永和县人民检察院","大宁县人民检察院","临汾铁路运输检察院"],"长治":["长治市人民检察院","城区人民检察院","郊区人民检察院","潞城市人民检察院","长治县人民检察院","屯留县人民检察院","长子县人民检察院","壶关县人民检察院","黎城县人民检察院","襄垣县人民检察院","武乡县人民检察院","沁县人民检察院","沁源县人民检察院","平顺县人民检察院"],"晋城":["晋城市人民检察院","城区人民检察院","泽州县人民检察院","高平市人民检察院","阳城县人民检察院","陵川县人民检察院","沁水县人民检察院","晋普山地区人民检察院"],"运城":["运城市人民检察院","盐湖区人民检察院","永济市人民检察院","河津市人民检察院","临猗县人民检察院","万荣县人民检察院","稷山县人民检察院","新绛县人民检察院","绛县人民检察院","垣曲县人民检察院","闻喜县人民检察院","夏县人民检察院","平陆县人民检察院","芮城县人民检察院","董村地区人民检察院"]};
+
+    function cityChange() {
+      city = $("#city").find("option:selected").text();
+      console.log(city)
+      var select = document.querySelector("#company");
+      if(city == "请选择您所在的城市"){
+        select.setAttribute("style",'display:none');
+      }else{
+        select.setAttribute("style",'display:block');
+        citys[city].forEach(function(item,index){
+          select.options[parseInt(index)+1] = new Option(item,item);
+        })
+      }
+    }
+
+    function companyChange(){
+      const company = $("#company").find("option:selected").text();
+      const firstLevel = ["山西省人民检察院","山西省人民检察院太原铁路运输分院"];
+      const secondLevel = ["太原市人民检察院","大同市人民检察院","忻州市人民检察院","朔州市人民检察院","吕梁市人民检察院","阳泉市人民检察院","晋中市人民检察院","临汾市人民检察院","长治市人民检察院","晋城市人民检察院","运城市人民检察院"];
+
+      if(firstLevel.indexOf(company) != -1){
+        $('#role').attr("value",'firstLevel');
+      }else if(secondLevel.indexOf(company) != -1){
+        $('#role').attr("value",'secondLevel');
+      }else{
+        $('#role').attr("value",'thirdLevel');
+      }
+    }
+  </script>
+  <!-- <script>
+    if ($.AMUI && $.AMUI.validator) {
+      $.AMUI.validator.patterns.mobile = /^\s*1\d{10}\s*$/;
+    }
+  </script> -->
+
 </body>
 </html>

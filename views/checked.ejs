@@ -1,0 +1,120 @@
+<%#审核稿件详情%>
+
+<!doctype html>
+<html>
+<head>
+    <%- include('admin/portal/head'); %>
+   
+</head>
+<body data-type="index">
+	<!-- topbar start //-->
+    <%- include('admin/portal/header') %>
+	<!-- topbar end //-->
+    <div class="am-cf admin-main">
+    			<!-- side nav bar start //-->
+        <%- include('admin/portal/sidernav') %>
+			<!-- side nav bar end //-->
+
+
+
+<div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">稿件管理</strong> / <small>审核稿件</small></div>
+      </div>
+
+      <hr>
+      <article class="am-cf am-padding">
+        <h3 class="am-article-title">
+            <%=article.title%>
+        </h3>
+        <h4 class="am-article-meta blog-meta">by <%=article.author%> posted on <%=date%> under <%=article.procuratorate.proName%>
+        </h4>
+
+        <div class="am-g blog-content">
+        
+            <p><%=article.content%></p>      
+            
+        </div>
+      
+    </article>
+
+<div class="am-cf am-padding">
+    <form method="post" action="/article/checked" class="am-form am-form-horizontal">
+        <input type="hidden" name="_id" value="<%=article._id%>">
+        <h3>审核意见</h3>
+        <div class="am-form-group">
+            <div class="am-u-sm-9">
+                <input type="radio" id="isChecked" name="isChecked" value="true">同意发布 &nbsp;&nbsp;
+                <input type="radio" id="isChecked" name="isChecked" value="false">撤回修改
+            </div>
+        </div>
+        <div class="am-form-group">
+            <div class="am-u-sm-9">
+                <textarea class="" rows="10" id="user-intro" name="comment">同意发布</textarea>
+           </div>
+        </div>
+        <div class="am-form-group">
+             <div class="am-u-sm-9 am-u-sm-push-3">
+                   <button type="submit" class="am-btn am-btn-primary tpl-btn-bg-color-success ">提交审核意见</button>
+             </div>
+        </div>
+    </form>
+</div>
+       
+      </div>
+    </div>
+
+    <footer class="admin-content-footer">
+      <hr>
+      
+        <div style="text-align:center">技术支持:北京中检旭风科技发展有限责任公司</div>
+     
+    </footer>
+
+  </div>
+  <!-- content end -->
+</div>
+
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+
+
+ <script>
+        function selectAll(){
+            var checklist = document.getElementsByName('selected');
+            if(document.getElementById('controlAll').checked) {
+                for(var i=0;i<checklist.length;i++) {
+                    checklist[i].checked = 1;
+                }
+            }else{
+                for(var j=0;j<checklist.length;j++) {
+                    checklist[j].checked = 0;
+                }
+            }
+        }
+        
+    </script>
+
+   
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
+
+
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="/js/amazeui.min.js"></script>
+<script src="/js/app.js"></script>
+<script>
+   $('#collapse-nav1').collapse();
+		$('#check a:first-child').append('<span class="am-icon-star am-fr am-margin-right admin-icon-yellow"></span>');
+	</script>
+</body>
+</html>
